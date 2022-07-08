@@ -44,7 +44,6 @@ public class Imagen implements Serializable{
     @JsonIgnore
     @Getter @Setter
     private Producto producto;
-
-    
+ 
 
 }

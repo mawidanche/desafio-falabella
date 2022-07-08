@@ -82,7 +82,7 @@ public class ProductoServiceImpl implements IProductoService{
     @Override
     public Producto updateProducto(Producto producto) throws NotFoundProductException {
         Producto old = productoRepository.findBySku(producto.getSku());
-        if(old == null){
+        if(old == null){ 
             throw new NotFoundProductException(PRODUCTO_NO_EXISTE);
 
         }

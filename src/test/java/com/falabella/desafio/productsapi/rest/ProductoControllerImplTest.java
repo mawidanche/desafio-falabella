@@ -76,6 +76,8 @@ public class ProductoControllerImplTest {
         Mockito.when(productoRepository.findAll()).thenReturn(productos);
         Mockito.when(productoRepository.findBySku("FAL-8406270")).thenReturn(productoNewBalance);   
         Mockito.when(productoRepository.existsById("NOT-EXIST")).thenReturn(false);
+        Mockito.when(productoRepository.findBySku("NOT-EXIST")).thenReturn(null);   
+
     }
 
     @Test
@@ -109,11 +111,22 @@ public class ProductoControllerImplTest {
 
     @Test
     void testAddProducto() {
-//TODO: pendiente
+        Producto producto = Producto.builder().build(); 
+        ResponseEntity<Producto> response = productoController.addProducto(producto);
+        Assertions.assertEquals(400, response.getStatusCodeValue());
+        producto = productoRepository.findBySku("FAL-8406270");
+        response = productoController.addProducto(producto);
+        Assertions.assertEquals(409, response.getStatusCodeValue());
     }
 
     @Test
     void testUpdateProducto() {
-//TODO: pendiente
+        Producto producto = productoRepository.findBySku("FAL-8406270");
+        ResponseEntity<Producto> response = productoController.updateProducto(producto);
+        Assertions.assertEquals(200, response.getStatusCodeValue());
+        producto = Producto.builder().sku("NOT-EXIST"). build(); 
+        response = productoController.updateProducto(producto);
+        Assertions.assertEquals(204, response.getStatusCodeValue());
+
     }
 }

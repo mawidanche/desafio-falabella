@@ -60,7 +60,9 @@ public class ProductoControllerImpl implements IProductoController {
     public ResponseEntity<Producto> updateProducto(Producto producto) {
         try {
             return new ResponseEntity<>(productoService.updateProducto(producto) ,HttpStatus.OK);
-        }catch (Exception e) {
+        }catch(NotFoundProductException nfp){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }  catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
       

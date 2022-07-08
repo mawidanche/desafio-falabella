@@ -56,4 +56,5 @@ public class Producto  implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producto", fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Imagen> otherImage;
+ 
 }
