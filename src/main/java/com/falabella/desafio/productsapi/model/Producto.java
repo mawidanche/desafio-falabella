@@ -18,10 +18,12 @@ import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity(name = "PRODUCTO")
+@Builder
 public class Producto  implements Serializable{
  
     private static final long serialVersionUID = 8282435803653095320L;

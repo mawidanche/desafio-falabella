@@ -14,7 +14,7 @@ Para copilar el proyecto se requiere Java y Maven instalado.
 ```
 Luego ejecutar el siguiente comando java
 ```bash
-  java -jar .\target\products-api-0.0.1-SNAPSHOT.war
+  java -jar .\target\products-api.war
 ```
 ## Visualizar Documentación y consumir la API
 La documentación swagger del API (una vez que se levanta el API) queda disponible en 
